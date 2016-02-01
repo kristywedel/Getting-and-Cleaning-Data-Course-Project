@@ -18,7 +18,7 @@ activityLabels <- read.csv("UCI HAR Dataset/activity_labels.txt", sep="", header
 
 ## Merging the data
 combinedData <- rbind(training, test)
-cols <- grep(".*Mean.*|.*Std.*", features[,2])
+cols <- grep(".*mean.*|.*std.*", features[,2])
 features <- features[cols,]
 cols <- c(cols, 562, 563)
 
