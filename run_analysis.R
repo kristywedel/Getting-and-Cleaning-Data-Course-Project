@@ -1,3 +1,9 @@
+# Load: data column names
+features <- read.csv("UCI HAR Dataset/features.txt", sep="", header=FALSE)
+
+# Extract only the measurements on the mean and standard deviation for each measurement.
+extract_features <- grepl("mean|std", features)
+
 ## Load the data
 training <- read.csv("UCI HAR Dataset/train/X_train.txt", sep="", header=FALSE)
 training[,562] <- read.csv("UCI HAR Dataset/train/Y_train.txt", sep="", header=FALSE)
@@ -8,16 +14,7 @@ test[,563] <- read.csv("UCI HAR Dataset/test/subject_test.txt", sep="", header=F
 
 activityLabels <- read.csv("UCI HAR Dataset/activity_labels.txt", sep="", header=FALSE)
 
-# features <- read.csv("UCI HAR Dataset/features.txt", sep="", header=FALSE)
-# features[,2] <- gsub('-mean', 'Mean', features[,2])
-# features[,2] <- gsub('-std', 'Std', features[,2])
-# features[,2] <- gsub('[-()]', '', features[,2])
 
-# Load: data column names
-features <- read.csv("UCI HAR Dataset/features.txt", sep="", header=FALSE)
-
-# Extract only the measurements on the mean and standard deviation for each measurement.
-extract_features <- grepl("mean|std", features)
 
 ## Merging the data
 combinedData <- rbind(training, test)
