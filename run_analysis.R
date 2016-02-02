@@ -37,7 +37,7 @@ for (currentActivityLabel in activityLabels$V2) {
 combinedData$activity <- as.factor(combinedData$activity)
 combinedData$subject <- as.factor(combinedData$subject)
 
-tidy_data = aggregate(combinedData, by=list(activity = combinedData$activity, subject=combinedData$subject), mean)
+tidy_data <- aggregate(combinedData, by=list(activity = combinedData$activity, subject=combinedData$subject), mean)
 
 ## tidy_data table
 write.table(tidy_data, "tidy_data.txt", sep="\t", row.names=FALSE)
