@@ -5,9 +5,9 @@ features <- read.csv("UCI HAR Dataset/features.txt", sep="", header=FALSE)
 extract_features <- grepl("mean|std", features)
 
 ## Load the data
-training <- read.csv("UCI HAR Dataset/train/X_train.txt", sep="", header=FALSE)
-training[,562] <- read.csv("UCI HAR Dataset/train/Y_train.txt", sep="", header=FALSE)
-training[,563] <- read.csv("UCI HAR Dataset/train/subject_train.txt", sep="", header=FALSE)
+train <- read.csv("UCI HAR Dataset/train/X_train.txt", sep="", header=FALSE)
+train[,562] <- read.csv("UCI HAR Dataset/train/Y_train.txt", sep="", header=FALSE)
+train[,563] <- read.csv("UCI HAR Dataset/train/subject_train.txt", sep="", header=FALSE)
 test <- read.csv("UCI HAR Dataset/test/X_test.txt", sep="", header=FALSE)
 test[,562] <- read.csv("UCI HAR Dataset/test/Y_test.txt", sep="", header=FALSE)
 test[,563] <- read.csv("UCI HAR Dataset/test/subject_test.txt", sep="", header=FALSE)
@@ -17,7 +17,7 @@ activityLabels <- read.csv("UCI HAR Dataset/activity_labels.txt", sep="", header
 
 
 ## Merging the data
-combinedData <- rbind(training, test)
+combinedData <- rbind(train, test)
 cols <- grep(".*mean.*|.*std.*", features[,2])
 features <- features[cols,]
 cols <- c(cols, 562, 563)
