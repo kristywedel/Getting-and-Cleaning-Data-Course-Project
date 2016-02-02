@@ -40,9 +40,5 @@ combinedData$subject <- as.factor(combinedData$subject)
 
 tidy_data = aggregate(combinedData, by=list(activity = combinedData$activity, subject=combinedData$subject), mean)
 
-## dont need subject and activity
-tidy_data[,90] = NULL
-tidy_data[,89] = NULL
-
 ## tidy_data table
 write.table(tidy_data, "tidy_data.txt", sep="\t", row.names=FALSE)
