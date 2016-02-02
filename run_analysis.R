@@ -29,7 +29,7 @@ combinedData <- combinedData[,cols]
 colnames(combinedData) <- c(features$V2, "Activity", "Subject")
 colnames(combinedData) <- tolower(colnames(combinedData))
 
-currentActivity = 1
+currentActivity <- 1
 for (currentActivityLabel in activityLabels$V2) {
   allData$activity <- gsub(currentActivity, currentActivityLabel, allData$activity)
   currentActivity <- currentActivity + 1
