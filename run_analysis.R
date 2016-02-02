@@ -30,7 +30,7 @@ colnames(combinedData) <- tolower(colnames(combinedData))
 
 currentActivity <- 1
 for (currentActivityLabel in activityLabels$V2) {
-  allData$activity <- gsub(currentActivity, currentActivityLabel, allData$activity)
+  combinedData$activity <- gsub(currentActivity, currentActivityLabel, combinedData$activity)
   currentActivity <- currentActivity + 1
 }
 
